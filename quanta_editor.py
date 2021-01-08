@@ -16,7 +16,7 @@ from tkinter.filedialog import asksaveasfile
 
 try:
     os.system("cls") #Windows -default
-except Exception as e:
+except Exception:
     os.system("clear") #Linux OS
     
 global selected
