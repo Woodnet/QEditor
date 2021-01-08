@@ -14,8 +14,11 @@ from datetime import datetime
 from tkinter import filedialog
 from tkinter.filedialog import asksaveasfile
 
-os.system("cls") #Windows -default
-
+try:
+    os.system("cls") #Windows -default
+except Exception as e:
+    os.system("clear") #Linux OS
+    
 global selected
 global linenumber
 global open_status_name
