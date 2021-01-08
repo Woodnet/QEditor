@@ -325,7 +325,7 @@ daten = {
         'standard_bg':"white",
         'monospace_font':"Consolas 24",
         'nachrichten':{
-            'Titel':"Quanta-Editor",
+            'Titel':"Qeditor -BETA",
         },
     },
 }
@@ -370,15 +370,15 @@ ss_x.config(command=Textfeld.xview)
 
 menubar = tkinter.Menu(root)
 filemenu = tkinter.Menu(menubar,tearoff=False)
-filemenu.add_command(label="Neue Datei",command=neue_datei)
-filemenu.add_command(label="Öffnen",command=__open_datei)
-filemenu.add_command(label="Ausschneiden        (Ctrl+x)",command=lambda:cut_text(False))
-filemenu.add_command(label="Kopieren        (Ctrl+c)",command=lambda:copy_text(False))
-filemenu.add_command(label="Einfügen        (Ctrl+v)",command=lambda:paste_text(False))
-filemenu.add_command(label="Speichern als        (Ctrl+s)", command=speichern)
+filemenu.add_command(label="New File",command=neue_datei)
+filemenu.add_command(label="Open",command=__open_datei)
+filemenu.add_command(label="Cut        (Ctrl+x)",command=lambda:cut_text(False))
+filemenu.add_command(label="Copy        (Ctrl+c)",command=lambda:copy_text(False))
+filemenu.add_command(label="Paste        (Ctrl+v)",command=lambda:paste_text(False))
+filemenu.add_command(label="Save as        (Ctrl+s)", command=speichern)
 filemenu.add_command(label="Speichern        (Ctrl+s)", command=__speichern__vorh)
-filemenu.add_command(label="Beenden",command=root.quit)
-menubar.add_cascade(label="Optionen", menu=filemenu)
+filemenu.add_command(label="Quit",command=root.quit)
+menubar.add_cascade(label="Options", menu=filemenu)
 root.config(menu=menubar)
 
 __status_bar = tkinter.Label(root,text="Ready", anchor=E)
