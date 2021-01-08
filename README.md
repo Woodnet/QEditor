@@ -1,4 +1,4 @@
-# QEditor
+# QEditor - BETA
 An Editor of Quanta (BETA-Version)
 # Version
     
