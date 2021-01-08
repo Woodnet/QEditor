@@ -26,7 +26,7 @@ selected = False
 
 def uhrzeit():
     t = datetime.now()
-    uhrzeit = "(%s_%sUhr)"%(t.hour,t.minute)
+    uhrzeit = "(%s_%s)"%(t.hour,t.minute)
     return uhrzeit
 
 def datum():
@@ -50,17 +50,17 @@ def __tab_function(*args):
     Textfeld.insert(position, "     ")
 
 def speichern(*args):
-    root.title("Datei wird gespeichert..")
+    root.title("File will be saved..")
     status = True
     try:
-        root.filename =  filedialog.asksaveasfilename(initialdir = "/",title = "Datei auswählen",filetypes = (("Python Dateien","*.py"),("Alle Dateitypen","*.*")))
+        root.filename =  filedialog.asksaveasfilename(initialdir = "/",title = "Choose a File..",filetypes = (("Python Files","*.py"),("Alle Dateitypen","*.*")))
     except Exception as FEHLER:
         print(FEHLER)
         status = False
     if (status != False):
         dateiname = root.filename
         name = dateiname
-        __status_bar.config(text=f'{name}   Gespeichert')
+        __status_bar.config(text=f'{name}   Saved')
         __inhalt_textfeld = Textfeld.get("1.0","end")
         root.title("Quanta>%s"%(dateiname))
         if (__inhalt_textfeld == ""):
@@ -73,12 +73,12 @@ def speichern(*args):
             if (dateiname == "" or dateiname == " "):
                 pass
             else:
-                print(" Fehler! => %s"%(F))
+                print(" Failure! => %s"%(F))
 
 def __open_datei():
     status = True
     try:
-        __dateiname__ = filedialog.askopenfilename(initialdir = "/",title = "Datei öffnen",filetypes = (("Python Dateien","*.py"),("Alle Dateitypen","*.tag")))
+        __dateiname__ = filedialog.askopenfilename(initialdir = "/",title = "Open File",filetypes = (("Python Files","*.py"),("All File-Types","*.*")))
         global open_status_name
         open_status_name = __dateiname__
     except Exception as e:
@@ -89,7 +89,7 @@ def __open_datei():
             name = __dateiname__
             __status_bar.config(text=f'{name}   ')
             Textfeld.delete("1.0","end")
-            root.title("Quanta>Datei geöffnet>%s"%(__dateiname__))
+            root.title("Qeditor>File opened>%s"%(__dateiname__))
             content = datei.read()
             Textfeld.insert(END,"%s"%(content))
             datei.close()
@@ -97,12 +97,12 @@ def __open_datei():
             if (__dateiname__ == "" or __dateiname__ == " "):
                 pass
             else:
-                print(" Fehler! => %s"%(F))
+                print(" Failure! => %s"%(F))
 
 
 def neue_datei():
     Textfeld.delete("1.0","end")
-    root.title("Quanta>Neue Datei>")
+    root.title("Qeditor>New File>")
     global open_status_name
     open_status_name = False
 
@@ -138,7 +138,7 @@ def paste_text(e):
 
 def jetzt():
     t = datetime.now()
-    jetzt = "%s.%s.%s-%s:%s:%s Uhr"%(t.day,t.month,t.year,t.hour,t.minute,t.second)
+    jetzt = "%s.%s.%s-%s:%s:%s"%(t.day,t.month,t.year,t.hour,t.minute,t.second)
     return jetzt
 
 def __speichern__vorh(*args):
@@ -150,7 +150,7 @@ def __speichern__vorh(*args):
             file.close()
         except Exception as F:
             print(" Fehler! => %s"%(F))
-        __status_bar.config(text=f'%s-Gespeichert: {open_status_name} '%(jetzt()))
+        __status_bar.config(text=f'%s-Saved: {open_status_name} '%(jetzt()))
     else:
         speichern()
 
