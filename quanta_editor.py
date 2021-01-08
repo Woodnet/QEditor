@@ -1,3 +1,12 @@
+#
+#	Author: Pulsar
+#	YouTube: https://www.youtube.com/channel/UCVo0vjlE50dn2LFynrGe9yA
+# 	GitHub: https://www.github.com/Woodnet
+# 	Twitter: https://twitter.com/7Pulsar
+#	Python-Version: Python 3.8.2
+#	Recommended OS: Windows 10
+#	--> Please write a comment on GitHub-issues.
+#
 import tkinter,os,sys,time,random
 from tkinter import *
 from tkinter import font
